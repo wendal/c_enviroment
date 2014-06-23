@@ -1,10 +1,10 @@
 #include "Arduino.h"
 #include "wiring_private.h"
-#include <linux/spi/spidev.h>
+//#include <linux/spi/spidev.h>
 
 static const char *pwm_dev = "/dev/pwmtimer";
-static const char *spi1_dev = "/dev/spidev1.0";
-static const char *spi2_dev = "/dev/spidev2.0";
+//static const char *spi1_dev = "/dev/spidev1.0";
+//static const char *spi2_dev = "/dev/spidev2.0";
 
 typedef struct tagPWM_Config {
     int channel;
@@ -39,6 +39,7 @@ void analogReference(uint8_t mode)
 
 static int spi_adc_read_data(int channel)
 {
+    return -1;/*
     int adc_val = 0, reg_val = 0, mode = 0;
     int _fd = 0, ret = 0;
     char rxbuf[2], txbuf[2];
@@ -112,7 +113,7 @@ static int spi_adc_read_data(int channel)
     if (_fd) 
        close(_fd);
 
-    return adc_val>>4;
+    return adc_val>>4;*/
 }
 
 int analogRead(uint8_t pin)

@@ -15,14 +15,14 @@ INCLUDES = \
 	-I$(DIR)/hardware/arduino/cores/arduino \
 	-I$(DIR)/hardware/arduino/variants \
 	-I$(DIR)/hardware/arduino/variants/sunxi \
-	-I$(DIR)/libraries \
-	-I$(DIR)/libraries/SPI \
-	-I$(DIR)/libraries/Wire \
-	-I$(DIR)/libraries/PN532_SPI 
+#	-I$(DIR)/libraries \
+#	-I$(DIR)/libraries/SPI \
+#	-I$(DIR)/libraries/Wire \
+#	-I$(DIR)/libraries/PN532_SPI 
 
-CFLAGS = -fPIC
+#CFLAGS = -fPIC
 #CFLAGS = $(INCLUDES)
-#CFLAGS += -march=armv7-a -mfpu=neon
+CFLAGS += -march=armv7-a -mfpu=neon
 
 SRCS = \
 	hardware/arduino/cores/arduino/main.cpp \
@@ -39,11 +39,11 @@ SRCS = \
 	hardware/arduino/cores/arduino/WMath.cpp \
 	hardware/arduino/cores/arduino/WString.cpp \
 	hardware/arduino/cores/arduino/Serial.cpp \
-	libraries/Wire/Wire.cpp \
-	libraries/SPI/SPI.cpp \
-	libraries/LiquidCrystal/Dyrobot_MCP23008.cpp \
-	libraries/LiquidCrystal/LiquidCrystal.cpp \
-	libraries/PN532_SPI/PN532.cpp \
+#	libraries/Wire/Wire.cpp \
+#	libraries/SPI/SPI.cpp \
+#	libraries/LiquidCrystal/Dyrobot_MCP23008.cpp \
+#	libraries/LiquidCrystal/LiquidCrystal.cpp \
+#	libraries/PN532_SPI/PN532.cpp \
 
 #OBJS = $(SRCS:%.c=%.o)
 OBJS = $(patsubst %.c,%.o,$(patsubst %.cpp,%.o,$(SRCS)))
@@ -61,7 +61,7 @@ LIB_SHARE = libarduino.so
 LIB = $(LIB_STATIC) $(LIB_SHARE)
 
 all: $(LIB)
-	make -C sample/
+	echo "Hi"#make -C sample/
 
 
 $(LIB): $(OBJS)
